@@ -18,13 +18,6 @@ Hello.propTypes = {
   name: PropTypes.string
 }
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   ReactDOM.render(
-//     <Hello name="React" />,
-//     document.body.appendChild(document.createElement('div')),
-//   )
-// })
-
 const container = document.body.appendChild(document.createElement('div'));
 const root = createRoot(container);
 root.render(<App />);
