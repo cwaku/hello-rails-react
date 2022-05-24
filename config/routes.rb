@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   get '*page', to: 'static#index', constraints: lambda { |req|
     !req.xhr? && req.format.html?
   }
-  root "static#index"
+  root 'static#index'
 end

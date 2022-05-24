@@ -1,21 +1,25 @@
-class V1::ThingsController < ApplicationController
-  def index
-    @greetings = Greeting.all
-    render json: @greetings
-  end
+# frozen_string_literal: true
 
-  def create
-    @greeting = Greeting.new(greeting_params)
-    if @greeting.save
-      render json: @greeting
-    else
-      render json: @greeting.errors, status: :unprocessable_entity
+module V1
+  class ThingsController < ApplicationController
+    def index
+      @greetings = Greeting.all
+      render json: @greetings
     end
-  end
 
-  private
+    def create
+      @greeting = Greeting.new(greeting_params)
+      if @greeting.save
+        render json: @greeting
+      else
+        render json: @greeting.errors, status: :unprocessable_entity
+      end
+    end
 
-  def greeting_params
-    params.require(:greeting).permit(:greeting)
+    private
+
+    def greeting_params
+      params.require(:greeting).permit(:greeting)
+    end
   end
 end
