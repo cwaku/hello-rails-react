@@ -1,12 +1,23 @@
 import React from "react"
 import PropTypes from "prop-types"
-class App extends React.Component {
-  render () {
-    return (
-      <React.Fragment>
-      </React.Fragment>
-    );
-  }
-}
 
-export default App
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Provider } from 'react-redux';
+import store from '../configureStore';
+
+import Home from '../pages/Home'
+import Greeting from '../pages/Greetings'
+
+const App = () => {
+  return (
+    <Provider store={store}>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Home />}/>
+          <Route path="/greetings" element={<Greeting />}/>
+        </Routes>
+      </Router>
+    </Provider>
+  );
+}
+export default App;
